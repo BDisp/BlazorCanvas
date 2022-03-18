@@ -40,6 +40,10 @@ namespace BlazorCanvas.Example11.Game
             var context = await _canvas.CreateCanvas2DAsync();
             var renderService = new RenderService(this, context);
             this.AddService(renderService);
+
+            var fpsCounter = new GameObject();
+            fpsCounter.Components.Add<FPSCounterComponent>();
+            player.AddChild(fpsCounter);
         }
 
         private GameObject BuildPlayer()
